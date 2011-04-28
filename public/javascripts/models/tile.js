@@ -1,4 +1,4 @@
-function Tile(index) {
+function Tile() {
   this.visible = false;
   
   function shouldAppear(neighbours) {
@@ -6,7 +6,6 @@ function Tile(index) {
   }
 
   return {
-    position: index,
     visible: this.visible,
 
     takeTurn: function(neighbours) {

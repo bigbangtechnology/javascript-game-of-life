@@ -1,14 +1,4 @@
 $(document).ready(function() {
-
- module("Core");
- 
- test("should have an index when being built", function() {
-   var index = 1;
-   
-   var tile = new Tile(index);
-   
-   equal(tile.position, index);
- });
  
  module("Birth");
  
