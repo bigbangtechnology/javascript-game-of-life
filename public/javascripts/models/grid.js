@@ -21,13 +21,19 @@ var Grid = function(width, height) {
     },
     
     columns: function() {
-      // get the length of the first row
-      // create a column array for each item in a row
-      // for each row, place each item into the relevant column array
+      return {
+        length: function() {
+          return dataSource.length;
+        }
+      }
     },
     
     rows: function() {
-      
+      return {
+        length: function() {
+          return dataSource[0].length;
+        }
+      }
     }
   }
 }
