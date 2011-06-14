@@ -1,0 +1,17 @@
+Rules:
+
+1. Life: 
+
+An empty tile with exactly three tiles surrounding it will become alive.
+
+2. Death by Isolation: 
+
+One or zero living squares surrounding a tile will cause it to die.
+
+3. Death by Suffocation:
+
+More than three living squares surrounding a tile will cause it to die.
+
+4. Survival:
+
+Two or three living squares surrounding a tile will cause it to survive.
