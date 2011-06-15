@@ -48,13 +48,6 @@ var Grid = function(width, height) {
   }
 }
 
-
-var grid = new Grid(3,3);
-grid.columns().length == 3
-
-///////
-
-
 // TODO: throw error when there are no rows
 
 [
