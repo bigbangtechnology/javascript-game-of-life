@@ -72,6 +72,7 @@ test("More than three living squares surrounding a tile will cause it to die.", 
   equals(sut.getCell(1,1), false);
 });
 
+
 test("Two or three living squares surrounding a tile will cause it to survive.", function() {
   var sut = new Grid(3,2);
   
@@ -82,4 +83,19 @@ test("Two or three living squares surrounding a tile will cause it to survive.",
   sut.iterate();
   
   equals(sut.getCell(1,1), true);
+});
+
+test("Should be able to initialize a grid that is wider than it is tall", function() {
+  var sut = new Grid(4,3);
+  
+  equals(sut.rows().length(), 3);
+  equals(sut.columns().length(), 4);
+  
+  for (var i=0; i < sut.rows().length(); i+=1) {    
+    var evenRow = i % 2;
+  
+    for (var j=0; j < sut.columns().length(); j+=1) {
+      sut.setCell(i,j, (Math.random() > 0.5) ? true : false);
+    }
+  }
 });

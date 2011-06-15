@@ -4,8 +4,7 @@ var Grid = function(width, height) {
 
   function createDataSource() {
       var data = [];
-      
-      //create rows 
+
       for (var i=0; i < height; i+=1) {    
         data[i] = [];
         
@@ -74,7 +73,7 @@ var Grid = function(width, height) {
     columns: function() {
       return {
         length: function() {
-          return dataSource.length;
+          return dataSource[0].length;
         }
       }
     },
@@ -82,7 +81,7 @@ var Grid = function(width, height) {
     rows: function() {
       return {
         length: function() {
-          return dataSource[0].length;
+          return dataSource.length;
         }
       }
     },

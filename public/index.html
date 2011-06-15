@@ -26,8 +26,8 @@
     
     #container {
       position:relative;
-      width:160px;
-      height:160px;
+      width:800px;
+      height:600px;
       margin:0% auto;
     }
     
@@ -47,6 +47,10 @@
       width:160px;
       text-align:center;      
     }
+    
+    canvas {
+      border:solid 1px red;
+    }
   </style>
 </head>
 <body>
@@ -62,7 +66,7 @@
     var canvas = canvasContainer.getContext("2d");    
     var game = new GameOfLife(canvas);
     
-    game.initialize(160, 160);
+    game.initialize(160, 120);
     
   </script>
 </body>

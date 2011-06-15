@@ -1,10 +1,12 @@
 var CanvasGrid = function(canvas) {
   var private = {
+    CELL_SIZE: 5,
+    
     width: 0,
     height: 0,
     
     clear: function() {
-      canvas.clearRect(1,1, private.width, private.height);
+      canvas.clearRect(0,0, private.width * private.CELL_SIZE, private.height * private.CELL_SIZE);
     }
   }
   
@@ -16,11 +18,11 @@ var CanvasGrid = function(canvas) {
     
     draw: function(grid) {
       private.clear();
-
+      
       for (var i=0; i < grid.rows().length(); i+=1) {    
         for (var j=0; j < grid.columns().length(); j+=1) {
             if (grid.getCell(i,j) == true) {
-              canvas.fillRect(i, j, 1, 1);
+              canvas.fillRect(i * private.CELL_SIZE, j * private.CELL_SIZE, private.CELL_SIZE, private.CELL_SIZE);
             }
         }
       }      
