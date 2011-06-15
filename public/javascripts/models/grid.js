@@ -30,6 +30,10 @@ var Grid = function(width, height) {
         if (count == 3) {
           nextDataSource[i][j] = true;
         }
+        
+        if (count == 2) {
+          nextDataSource[i][j] = dataSource[i][j];
+        }
       }      
     }  
   }

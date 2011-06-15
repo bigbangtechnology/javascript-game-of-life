@@ -52,3 +52,40 @@ test("An empty tile with exactly three tiles surrounding it will become alive.",
   
 });
 
+test("One or zero living squares surrounding a tile will cause it to die.", function() {
+  var sut = new Grid(3,2);
+  
+  sut.setCell(0,0, true);
+  sut.setCell(1,1, true);
+  
+  sut.iterate();
+  
+  equals(sut.getCell(1,1), false);
+  
+});
+
+test("More than three living squares surrounding a tile will cause it to die.", function() {
+  var sut = new Grid(3,2);
+  
+  sut.setCell(0,0, true);
+  sut.setCell(0,1, true);
+  sut.setCell(0,2, true);
+  sut.setCell(1,0, true);
+  sut.setCell(1,1, true);
+  
+  sut.iterate();
+  
+  equals(sut.getCell(1,1), false);
+});
+
+test("Two or three living squares surrounding a tile will cause it to survive.", function() {
+  var sut = new Grid(3,2);
+  
+  sut.setCell(0,0, true);
+  sut.setCell(0,1, true);
+  sut.setCell(1,1, true);
+  
+  sut.iterate();
+  
+  equals(sut.getCell(1,1), true);
+});
