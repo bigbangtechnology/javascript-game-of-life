@@ -40,47 +40,20 @@ var Grid = function(width, height) {
   
   // show the number of active items surrounding the row and column
   function countAround(row, column) {
-    function up() { row -= 1 }
+    var directions = {
+      up:     function() { row    -= 1 },
+      right:  function() { column += 1 },
+      down:   function() { row    += 1 },
+      left:   function() { column -= 1 }
+    }
     
-    function right() { column += 1 }
-    
-    function down() { row += 1 }
-    
-    function left() { column -= 1 }
-        
     var count = 0;
-
-    up();
+    var actions = ["up", "right", "down", "down", "left", "left", "up", "up"];
     
-    count += public.getCell(row, column);
-
-    right();
-    
-    count += public.getCell(row, column);
-    
-    down();
-    
-    count += public.getCell(row, column);
-    
-    down();
-    
-    count += public.getCell(row, column);
-    
-    left();
-    
-    count += public.getCell(row, column);
-        
-    left();
-    
-    count += public.getCell(row, column);
-    
-    up();
-
-    count += public.getCell(row, column);    
-    
-    up();
-    
-    count += public.getCell(row, column);
+    for (var i = 0; i < actions.length; i+=1) {
+      directions[actions[i]]();
+      count += public.getCell(row, column);
+    }
     
     return count;
   }
