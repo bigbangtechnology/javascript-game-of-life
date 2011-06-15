@@ -65,7 +65,9 @@ var Grid = function(width, height) {
   dataSource = createDataSource();
   
   var public = {
-    data: function(){
+    ITERATE_EVENT: "iterate",
+    
+    data: function() {
       return dataSource;
     },
     
@@ -97,12 +99,12 @@ var Grid = function(width, height) {
     },
     
     iterate: function() {
-      calculate();
+      calculate();  
       activate();
     },
     
     toHTML: function() {
-    	var html = "<table>";
+    	var html = "<table cellpadding='0' cellspacing='0'>";
 
       for (var i=0; i < height; i+=1) {
         html += "<tr>";
@@ -124,5 +126,3 @@ var Grid = function(width, height) {
   
   return public;
 }
-
-// TODO: throw error when there are no rows
