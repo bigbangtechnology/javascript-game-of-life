@@ -126,6 +126,26 @@ var Grid = function(width, height) {
     iterate: function() {
       calculate();
       activate();
+    },
+    
+    toHTML: function() {
+    	var html = "<table>";
+
+      for (var i=0; i < height; i+=1) {
+        html += "<tr>";
+        
+        for (var j=0; j < width; j+=1) {
+          var active = (this.getCell(i,j) == true) ? "active" : "";
+          
+          html += "<td class='" + active  + "'>&nbsp;</td>";
+        }      
+        
+        html += "</tr>";
+      }
+
+      html += "</table>";
+      
+      return html;      
     }
   }
   

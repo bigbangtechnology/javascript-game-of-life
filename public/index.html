@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>untitled</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Cameron Westland">
+  
+  <script type="text/javascript" src="javascripts/models/grid.js"></script>
+  
+  <style type="text/css">
+    .active {
+      background-color:red;
+    }
+    
+    td {
+      width:3px;
+      height:3px;
+      font-size:0px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/javascript">
+    var grid = new Grid(60,60);
+    
+    for (var i=0; i < grid.rows().length(); i+=1) {    
+      var evenRow = i % 2;
+
+      for (var j=0; j < grid.columns().length(); j+=1) {
+          grid.setCell(i,j, (Math.random() > 0.5) ? true : false);
+      }      
+    }    
+
+    var container = document.getElementById("container");
+    
+    setInterval(function(){
+      grid.iterate();      
+      container.innerHTML = grid.toHTML();
+    }, 100);
+    
+  </script>
+</body>
+</html>
