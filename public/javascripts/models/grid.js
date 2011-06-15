@@ -6,8 +6,14 @@ var Grid = function(width, height) {
     for (var i=0; i < height; i+=1) {    
       data[i] = [];
       
+      evenRow = i % 2;
+      
       for (var j=0; j < width; j+=1) {
-        data[i][j] = false;
+        if (evenRow) {
+          data[i][j] = (j%2) ? true : false;          
+        } else {
+          data[i][j] = (j%2) ? false : true;          
+        }
       }      
     }    
     return data;
@@ -34,6 +40,10 @@ var Grid = function(width, height) {
           return dataSource[0].length;
         }
       }
+    },
+    
+    getCell: function(row, column) {
+      return dataSource[row][column];
     }
   }
 }
