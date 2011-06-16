@@ -26,9 +26,8 @@
     
     #container {
       position:relative;
-      width:800px;
-      height:600px;
       margin:0% auto;
+      border:solid 1px blue;
     }
     
     .active {
@@ -58,7 +57,7 @@
   <h1>JavaScript Game of Life</h1>
   <div id="container">
     <p id="loading">Loading…</p>
-    <canvas id="canvas_container"></canvas>
+    <canvas id="canvas_container" width="800" height="450"></canvas>
   </div>
 
   <script type="text/javascript">
@@ -66,7 +65,7 @@
     var canvas = canvasContainer.getContext("2d");    
     var game = new GameOfLife(canvas);
     
-    game.initialize(160, 120);
+    game.initialize(160, 90);
     
   </script>
 </body>
