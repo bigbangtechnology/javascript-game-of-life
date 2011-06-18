@@ -24,10 +24,10 @@
       text-align:center;
     }
     
-    #container {
-      position:relative;
+    canvas {
       margin:0% auto;
-      border:solid 1px blue;
+      width:800px;
+      display:block;
     }
     
     .active {
@@ -46,19 +46,13 @@
       width:160px;
       text-align:center;      
     }
-    
-    canvas {
-      border:solid 1px red;
-    }
   </style>
 </head>
 <body>
 
   <h1>JavaScript Game of Life</h1>
-  <div id="container">
-    <p id="loading">Loading…</p>
-    <canvas id="canvas_container" width="800" height="450"></canvas>
-  </div>
+
+  <canvas id="canvas_container" width="800" height="450"></canvas>
 
   <script type="text/javascript">
     var canvasContainer = document.getElementById("canvas_container");

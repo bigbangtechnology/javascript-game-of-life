@@ -18,11 +18,16 @@ var CanvasGrid = function(canvas) {
     
     draw: function(grid) {
       private.clear();
+      var x, y;
       
       for (var i=0; i < grid.rows().length(); i+=1) {    
+        y = i;
+        
         for (var j=0; j < grid.columns().length(); j+=1) {
+          x = j;
+          
             if (grid.getCell(i,j) == true) {
-              canvas.fillRect(i * private.CELL_SIZE, j * private.CELL_SIZE, private.CELL_SIZE, private.CELL_SIZE);
+              canvas.fillRect(x * private.CELL_SIZE, y * private.CELL_SIZE, private.CELL_SIZE, private.CELL_SIZE);
             }
         }
       }      

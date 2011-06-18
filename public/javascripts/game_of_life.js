@@ -6,10 +6,8 @@ var GameOfLife = function(canvas) {
     grid = new Grid(width, height);
     canvasGrid.initialize(width, height);
     
-    for (var i=0; i < grid.rows().length(); i+=1) {    
-      var evenRow = i % 2;
-    
-      for (var j=0; j < grid.columns().length(); j+=1) {
+    for (var i=0; i < height; i+=1) {    
+      for (var j=0; j < width; j+=1) {
         grid.setCell(i,j, (Math.random() > 0.5) ? true : false);
       }      
     }    
@@ -18,10 +16,11 @@ var GameOfLife = function(canvas) {
   }
 
   var public = {
-    initialize: function(width,height) {
+    initialize: function(width, height) {
       seedGrid(width, height, function() {
-        setInterval(function() {
-          $('#loading').hide();
+        canvasGrid.draw(grid);
+        
+        setInterval(function() {          
           grid.iterate();
           canvasGrid.draw(grid);
         }, 200);        
